@@ -1,0 +1,49 @@
+{
+  "project": "Nasima Profile",
+  "version": "1.0.0",
+  "security_frameworks": {
+    "OWASP_TOP_10_2021": {
+      "A01_Broken_Access_Control": {
+        "status": "N/A",
+        "description": "Static profile page, no backend auth."
+      },
+      "A02_Cryptographic_Failures": {
+        "status": "Pass",
+        "implementation": "Enforce HTTPS for all links. Replaced deprecated shorteners.",
+        "artifacts": ["README.md"]
+      },
+      "A05_Security_Misconfiguration": {
+        "status": "Pass",
+        "implementation": "CI/CD pipeline automated with secret scanning and link checking.",
+        "artifacts": [".github/workflows/security-pipeline.yml"]
+      },
+      "A06_Vulnerable_and_Outdated_Components": {
+        "status": "Pass",
+        "implementation": "Monitoring dependencies in featured projects like Sentinel AI.",
+        "artifacts": ["README.md"]
+      }
+    },
+    "NIST_CSF_V1.1": {
+      "ID.AM-1": {
+        "domain": "Asset Management",
+        "description": "Inventory of digital assets (GitHub repos) documented in Tech Stack.",
+        "artifacts": ["README.md"]
+      },
+      "PR.DS-2": {
+        "domain": "Data Security",
+        "description": "Integrity of links verified via automated CI/CD checks.",
+        "artifacts": [".github/workflows/security-pipeline.yml"]
+      },
+      "DE.CM-1": {
+        "domain": "Detection Processes",
+        "description": "Monitoring for secret leaks and broken links.",
+        "artifacts": [".github/workflows/security-pipeline.yml"]
+      }
+    }
+  },
+  "audit_tooling": {
+    "link_validator": "lychee",
+    "secret_scanner": "gitleaks",
+    "linter": "markdownlint"
+  }
+}

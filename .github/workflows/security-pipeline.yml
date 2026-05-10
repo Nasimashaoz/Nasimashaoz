@@ -1,0 +1,50 @@
+name: 🛡️ Security & Quality Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    - cron: '0 0 * * 1' # Run weekly on Mondays
+
+jobs:
+  security-audit:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🔗 Link Checker (Lychee)
+        uses: lycheeverse/lychee-action@v1.9.0
+        with:
+          args: --verbose --no-progress README.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔐 Secret Scanning (Gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📝 Markdown Lint
+        uses: DavidAnson/markdownlint-cli2-action@v15
+        with:
+          globs: "**/*.md"
+
+  compliance-check:
+    name: Compliance Mapping
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate Security Manifest
+        run: |
+          if [ ! -f security-map.json ]; then
+            echo "❌ security-map.json missing!"
+            exit 1
+          fi
+          # Basic JSON validation
+          cat security-map.json | jq .
