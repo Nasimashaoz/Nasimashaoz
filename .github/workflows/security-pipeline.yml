@@ -53,4 +53,7 @@ jobs:
             exit 1
           fi
           # Basic JSON validation
-          cat security-map.json | jq .
+          jq . security-map.json
+
+      - name: 🛡️ Run Security Auditor
+        run: python3 scripts/security_auditor.py
