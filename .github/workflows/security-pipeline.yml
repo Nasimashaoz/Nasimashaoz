@@ -15,11 +15,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for gitleaks to scan history
 
       - name: 🔗 Link Checker (Lychee)
         uses: lycheeverse/lychee-action@v1.9.0
         with:
-          args: --verbose --no-progress README.md
+          # Accept 503/429 to avoid transient failures from github-readme-stats
+          args: --verbose --no-progress --accept 429,503 README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
