@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=01696F&center=true&vCenter=true&width=700&lines=Hey%2C+I'm+Nasima+%F0%9F%91%8B;Cybersecurity+%2B+AI+%3D+%F0%9F%9B%A1%EF%B8%8F+Sentinel+AI;Linux+%C2%B7+Kubernetes+%C2%B7+AWS+%C2%B7+GCP+%C2%B7+Azure;Open+Source+%7C+Self-Hosted+%7C+Zero+Cloud)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=01696F&center=true&vCenter=true&width=700&lines=Hey%2C+I'm+Nasima+%F0%9F%91%8B;Cybersecurity+%2B+AI+%3D+%F0%9F%9B%A1%EF%B8%8F+Sentinel+AI;Linux+%C2%B7+Kubernetes+%C2%B7+AWS+%C2%B7+GCP+%C2%B7+Azure;Open+Source+%7C+Self-Hosted+%7C+Zero+Cloud)](https://github.com/DenverCoder1/readme-typing-svg)
 
 </div>
 
