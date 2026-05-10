@@ -34,7 +34,10 @@ jobs:
       - name: 📝 Markdown Lint
         uses: DavidAnson/markdownlint-cli2-action@v15
         with:
-          globs: "**/*.md"
+          # Exclude lychee/ (generated artifact) to avoid linting failures
+          globs: |
+            **/*.md
+            !lychee/out.md
 
   compliance-check:
     name: Compliance Mapping
